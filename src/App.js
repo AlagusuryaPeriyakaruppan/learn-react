@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import CallbackComponent from "./components/CallbackComponent";
+import Reducer from "./components/Reducer";
 
 function App() {
+  // const Container = HOC(Content);
+
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setId(() => id + 1);
+  //   }, 1000);
+  // });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <ClickCounter name="Surya" /> */}
+      {/* <Counter /> */}
+      {/* <Parent id={id} age={age} /> */}
+      <CallbackComponent />
+      <Reducer />
     </div>
   );
 }
