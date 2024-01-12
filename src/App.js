@@ -1,26 +1,25 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import CallbackComponent from "./components/CallbackComponent";
-import Reducer from "./components/Reducer";
-import State from "./components/State";
-import Class from "./components/Class";
-import ArraywithState from "./components/ArraywithState";
+import { ErrorBoundary } from "react-error-boundary";
+import Person from "./components/Person";
+import IncreaseCount from "./components/IncreaseCount";
+import Fallback from "./components/Fallback";
 
 function App() {
-  // const Container = HOC(Content);
+  const person = {
+    firstName: "Alagu",
+    lastName: "surya",
+  };
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     setId(() => id + 1);
-  //   }, 1000);
-  // });
+  const errorHandler = (error, errorInfo) => {
+    console.log("Logging:", error, errorInfo);
+  };
 
   return (
     <div className="App">
-      {/* <ClickCounter name="Surya" /> */}
-      {/* <Counter /> */}
-      {/* <Parent id={id} age={age} /> */}
-      <ArraywithState />
+      <ErrorBoundary FallbackComponent={Fallback} onError={errorHandler}>
+        <Person person={person} />
+        <IncreaseCount />
+      </ErrorBoundary>
     </div>
   );
 }
